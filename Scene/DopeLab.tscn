@@ -95,5 +95,5 @@ shape = SubResource( 4 )
 [node name="HatMan" parent="." instance=ExtResource( 1 )]
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 13, 4 )
+transform = Transform( 1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 19, 7 )
 current = true
