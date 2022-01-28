@@ -3,7 +3,7 @@
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 4, 1, 2 )
 
-[node name="root" type="Spatial"]
+[node name="DopeLab" type="Spatial"]
 
 [node name="Clube" type="MeshInstance" parent="."]
 mesh = SubResource( 1 )
