@@ -1,31 +1,33 @@
 extends KinematicBody
 
-const SPEED = 5
-const UP_DIRECTION = Vector3(0, 1, 0)
-var motion = Vector3()
+export var speed = 5.0
+export var jump_speed = 10.0
+var gravity = 50.0
+var velocity = Vector3.ZERO
 
 func _physics_process(delta):
-	move()
+	movement(delta)
 
-func _process(delta):
-	face_forward()
+func movement(delta):
+	var direction = Vector3.ZERO
+	if Input.is_action_pressed("ui_right"):
+		direction.x += 1
+	if Input.is_action_pressed("ui_left"):
+		direction.x -= 1
+	if Input.is_action_pressed("ui_down"):
+		direction.z += 1
+	if Input.is_action_pressed("ui_up"):
+		direction.z -= 1
 
-func move():
-	if Input.is_action_pressed("ui_down") and not Input.is_action_pressed("ui_up"):
-		motion.z = SPEED
-	elif Input.is_action_pressed("ui_up") and not Input.is_action_pressed("ui_down"):
-		motion.z = -SPEED
-	else:
-		motion.z = 0
-
-	if Input.is_action_pressed("ui_right") and not Input.is_action_pressed("ui_left"):
-		motion.x = SPEED
-	elif Input.is_action_pressed("ui_left") and not Input.is_action_pressed("ui_right"):
-		motion.x = -SPEED
-	else: motion.x = 0
-
-	move_and_slide(motion, UP_DIRECTION)
-
-func face_forward():
-	if not motion.x == 0 or not motion.z == 0:
-		look_at(Vector3(-motion.x, 0, -motion.z), UP_DIRECTION)
+	if direction != Vector3.ZERO:
+		direction = direction.normalized()
+		$Pivot.look_at(translation + direction, Vector3.UP)
+	
+	velocity.x = direction.x * speed
+	velocity.z = direction.z * speed
+	
+	if is_on_floor() and Input.is_action_pressed("jump"):
+		velocity.y += jump_speed
+	
+	velocity.y -= gravity * delta
+	velocity = move_and_slide(velocity, Vector3.UP)

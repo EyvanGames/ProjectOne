@@ -2,46 +2,47 @@
 
 [ext_resource path="res://Script/HatMan.gd" type="Script" id=1]
 
-[sub_resource type="SphereMesh" id=3]
+[sub_resource type="CapsuleMesh" id=1]
+radius = 0.25
+mid_height = 0.75
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0.960784, 0.356863, 0.356863, 1 )
 
 [sub_resource type="SpatialMaterial" id=4]
 albedo_color = Color( 0.227451, 0.227451, 0.227451, 1 )
 
 [sub_resource type="CubeMesh" id=5]
 material = SubResource( 4 )
-
-[sub_resource type="CapsuleMesh" id=1]
-radius = 0.25
-mid_height = 1.5
+size = Vector3( 0.35, 0.08, 0.1 )
 
 [sub_resource type="CapsuleShape" id=2]
 radius = 0.25
-height = 1.5
+height = 0.75
 
 [node name="HatMan" type="KinematicBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Head" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3802, 0 )
+[node name="Pivot" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0301238, 0 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Skull" type="MeshInstance" parent="Head"]
-transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0 )
-mesh = SubResource( 3 )
-material/0 = null
-
-[node name="Nose" type="MeshInstance" parent="Head"]
-transform = Transform( 0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.5, 0, 0, 0.551772 )
-mesh = SubResource( 5 )
-material/0 = null
-
-[node name="Body" type="Spatial" parent="."]
-
-[node name="MeshInstance" type="MeshInstance" parent="Body"]
+[node name="Body" type="MeshInstance" parent="Pivot"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 mesh = SubResource( 1 )
+material/0 = SubResource( 6 )
+
+[node name="Goggles" type="MeshInstance" parent="Pivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -0.223802 )
+mesh = SubResource( 5 )
+skeleton = NodePath("")
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.0301238, 0 )
 shape = SubResource( 2 )
