@@ -49,5 +49,3 @@ shape = SubResource( 2 )
 [node name="Camera" type="Camera" parent="CameraRig"]
 transform = Transform( 1, 0, 0, 0, 0.772667, 0.634812, 0, -0.634812, 0.772667, 0, 5.82578, 6.59004 )
 current = true
-
-[node name="Spatial" type="Spatial" parent="CameraRig"]
