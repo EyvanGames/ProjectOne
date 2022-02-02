@@ -7,30 +7,27 @@ radius = 0.25
 mid_height = 0.75
 
 [sub_resource type="SpatialMaterial" id=6]
-albedo_color = Color( 0.960784, 0.356863, 0.356863, 1 )
+albedo_color = Color( 0.960784, 0.498039, 0.356863, 1 )
 
 [sub_resource type="SpatialMaterial" id=4]
 albedo_color = Color( 0.227451, 0.227451, 0.227451, 1 )
 
 [sub_resource type="CubeMesh" id=5]
 material = SubResource( 4 )
-size = Vector3( 0.35, 0.08, 0.1 )
+size = Vector3( 0.35, 0.1, 0.15 )
 
 [sub_resource type="CapsuleShape" id=2]
 radius = 0.25
 height = 0.75
 
 [node name="HatMan" type="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.615427, 0 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Pivot" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0301238, 0 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Body" type="MeshInstance" parent="Pivot"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
@@ -38,11 +35,17 @@ mesh = SubResource( 1 )
 material/0 = SubResource( 6 )
 
 [node name="Goggles" type="MeshInstance" parent="Pivot"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -0.223802 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -0.22723 )
 mesh = SubResource( 5 )
 skeleton = NodePath("")
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.0301238, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 2 )
+
+[node name="CameraRig" type="Position3D" parent="."]
+
+[node name="Camera" type="Camera" parent="CameraRig"]
+transform = Transform( 1, 0, 0, 0, 0.772667, 0.634812, 0, -0.634812, 0.772667, 0, 5.82578, 6.59004 )
+current = true

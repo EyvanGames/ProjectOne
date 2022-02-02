@@ -14,6 +14,10 @@ config/name="ProjectOne"
 run/main_scene="res://Scene/DopeLab.tscn"
 config/icon="res://Asset/icon.png"
 
+[autoload]
+
+Global="*res://Script/Global.gd"
+
 [input]
 
 ui_left={
