@@ -26,7 +26,7 @@ func run(delta):
 	if Input.is_action_pressed("ui_up"):
 		direction.z -= 1
 	direction = direction.normalized()
-	
+	print("a")
 	if direction != Vector3.ZERO:
 		$Pivot.look_at(translation + direction, Vector3.UP)
 	velocity.x = direction.x * speed
