@@ -14,6 +14,8 @@ func _physics_process(delta):
 	run(delta)
 	jump()
 	camera_motion()
+	if Input.is_action_pressed("RMB"):
+		aim()
 
 func run(delta):
 	var direction = Vector3.ZERO
@@ -26,8 +28,7 @@ func run(delta):
 	if Input.is_action_pressed("ui_up"):
 		direction.z -= 1
 	direction = direction.normalized()
-	print("a")
-	if direction != Vector3.ZERO:
+	if direction != Vector3.ZERO and not Input.is_action_pressed("RMB"):
 		$Pivot.look_at(translation + direction, Vector3.UP)
 	velocity.x = direction.x * speed
 	velocity.z = direction.z * speed
@@ -39,3 +40,13 @@ func jump():
 func camera_motion():
 	var player_pos = global_transform.origin
 	camera_rig.global_transform.origin = player_pos
+func aim():
+	var player_pos = global_transform.origin
+	var drop_plane = Plane(Vector3(0, 1, 0), player_pos.y)
+	var ray_length = 1000
+	var mouse_pos = get_viewport().get_mouse_position()
+	var from = camera.project_ray_origin(mouse_pos)
+	var to = from + camera.project_ray_normal(mouse_pos) * ray_length
+	var cursor_pos = drop_plane.intersects_ray(from, to)
+	look_at(cursor_pos, Vector3.UP)
+	
