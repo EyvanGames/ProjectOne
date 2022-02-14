@@ -19,14 +19,8 @@ func _physics_process(delta):
 
 func run(delta):
 	var direction = Vector3.ZERO
-	if Input.is_action_pressed("ui_right"):
-		direction.x += 1
-	if Input.is_action_pressed("ui_left"):
-		direction.x -= 1
-	if Input.is_action_pressed("ui_down"):
-		direction.z += 1
-	if Input.is_action_pressed("ui_up"):
-		direction.z -= 1
+	direction.x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
+	direction.z = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
 	direction = direction.normalized()
 	if direction != Vector3.ZERO and not Input.is_action_pressed("RMB"):
 		$Pivot.look_at(translation + direction, Vector3.UP)
