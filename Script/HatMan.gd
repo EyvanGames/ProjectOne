@@ -2,9 +2,9 @@ extends KinematicBody
 
 onready var camera_rig = $CameraRig
 onready var camera = $CameraRig/Camera
-export var speed = 5.0
-export var jump_speed = 10.0
-var gravity = 50.0
+export var speed:float = 5.0
+export var jump_speed:float = 10.0
+var gravity:float = 50.0
 var velocity = Vector3.ZERO
 
 func _ready():
@@ -22,18 +22,23 @@ func run(delta):
 	direction.x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
 	direction.z = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
 	direction = direction.normalized()
+	
 	if direction != Vector3.ZERO and not Input.is_action_pressed("RMB"):
 		$Pivot.look_at(translation + direction, Vector3.UP)
+			
 	velocity.x = direction.x * speed
 	velocity.z = direction.z * speed
 	velocity.y -= gravity * delta
 	velocity = move_and_slide(velocity, Vector3.UP)
+
 func jump():
 	if is_on_floor() and Input.is_action_pressed("jump"):
 		velocity.y += jump_speed
+
 func camera_motion():
 	var player_pos = global_transform.origin
 	camera_rig.global_transform.origin = player_pos
+
 func aim():
 	var player_pos = global_transform.origin
 	var drop_plane = Plane(Vector3(0, 1, 0), player_pos.y)
