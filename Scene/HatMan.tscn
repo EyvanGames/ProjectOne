@@ -2941,11 +2941,11 @@ input_1/auto_advance = false
 [sub_resource type="AnimationNodeAnimation" id=33]
 animation = "idle"
 
+[sub_resource type="AnimationNodeOneShot" id=41]
+
 [sub_resource type="AnimationNodeTimeScale" id=40]
 
 [sub_resource type="AnimationNodeBlend3" id=34]
-
-[sub_resource type="AnimationNodeOneShot" id=41]
 
 [sub_resource type="AnimationNodeAnimation" id=35]
 animation = "run"
@@ -2985,7 +2985,7 @@ animation = "walk"
 [sub_resource type="AnimationNodeTimeScale" id=38]
 
 [sub_resource type="AnimationNodeBlendTree" id=16]
-graph_offset = Vector2( 277.557, 609.574 )
+graph_offset = Vector2( 873.211, 470.353 )
 nodes/Animation/node = SubResource( 39 )
 nodes/Animation/position = Vector2( 700, 660 )
 nodes/TimeScale/node = SubResource( 27 )
@@ -2994,13 +2994,13 @@ nodes/guard_transition/node = SubResource( 28 )
 nodes/guard_transition/position = Vector2( 800, 320 )
 nodes/idle/node = SubResource( 33 )
 nodes/idle/position = Vector2( 100, 360 )
+nodes/jump/node = SubResource( 41 )
+nodes/jump/position = Vector2( 1260, 520 )
 nodes/jump_scale/node = SubResource( 40 )
 nodes/jump_scale/position = Vector2( 940, 760 )
 nodes/move_blend/node = SubResource( 34 )
 nodes/move_blend/position = Vector2( 460, 560 )
 nodes/output/position = Vector2( 1560, 380 )
-nodes/roll/node = SubResource( 41 )
-nodes/roll/position = Vector2( 1260, 520 )
 nodes/run/node = SubResource( 35 )
 nodes/run/position = Vector2( -200, 600 )
 nodes/run_scale/node = SubResource( 36 )
@@ -3011,7 +3011,7 @@ nodes/walk/node = SubResource( 37 )
 nodes/walk/position = Vector2( -200, 400 )
 nodes/walk_scale/node = SubResource( 38 )
 nodes/walk_scale/position = Vector2( 100, 500 )
-node_connections = [ "output", 0, "roll", "jump_scale", 0, "Animation", "roll", 0, "guard_transition", "roll", 1, "jump_scale", "walk_scale", 0, "walk", "TimeScale", 0, "strafe", "run_scale", 0, "run", "guard_transition", 0, "TimeScale", "guard_transition", 1, "move_blend", "move_blend", 0, "idle", "move_blend", 1, "walk_scale", "move_blend", 2, "run_scale" ]
+node_connections = [ "output", 0, "jump", "jump", 0, "guard_transition", "jump", 1, "jump_scale", "guard_transition", 0, "TimeScale", "guard_transition", 1, "move_blend", "move_blend", 0, "idle", "move_blend", 1, "walk_scale", "move_blend", 2, "run_scale", "jump_scale", 0, "Animation", "TimeScale", 0, "strafe", "walk_scale", 0, "walk", "run_scale", 0, "run" ]
 
 [sub_resource type="CapsuleShape" id=15]
 radius = 0.25
@@ -3231,9 +3231,9 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/TimeScale/scale = 1.0
 parameters/guard_transition/current = 1
+parameters/jump/active = false
 parameters/jump_scale/scale = 6.0
 parameters/move_blend/blend_amount = -1.0
-parameters/roll/active = false
 parameters/run_scale/scale = 1.0
 parameters/strafe/blend_position = Vector2( -0.000813663, 0.0181818 )
 parameters/walk_scale/scale = 1.0

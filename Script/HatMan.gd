@@ -50,7 +50,7 @@ func run(delta):
 func jump():
 	if is_on_floor() and Input.is_action_pressed("jump"):
 		velocity.y += jump_speed
-		anim_node.set("parameters/roll/active", true)
+		anim_node.set("parameters/jump/active", true)
 		anim_node.set("parameters/guard_transition/current", 1)
 	
 func camera_motion():
