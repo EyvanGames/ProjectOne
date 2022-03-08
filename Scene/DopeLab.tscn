@@ -46,7 +46,7 @@ material/0 = null
 shape = SubResource( 2 )
 
 [node name="HatMan" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.809109, 0.021296 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0177546, 0.021296 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.698836, -0.0115633, 0.715189, -0.5, 0.707107, 0.5, -0.511496, -0.707012, 0.48837, 16, 14.6013, 12.6564 )

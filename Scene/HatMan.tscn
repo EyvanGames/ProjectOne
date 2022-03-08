@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Script/HatMan.gd" type="Script" id=1]
 [ext_resource path="res://Asset/Player.material" type="Material" id=2]
@@ -2925,6 +2925,94 @@ tracks/33/imported = false
 tracks/33/enabled = true
 tracks/33/keys = PoolRealArray( 0, 1, 0, -0.897107, -0.0447309, 0, 1.77636e-15, 0, 1, 1, 1, 1, 0.0666667, 1, 0, -0.926995, -0.0447309, 0.00953864, -1.42136e-10, -1.49005e-08, 0.999955, 1, 1, 1, 0.133333, 1, 0, -1.0585, -0.0447309, 0.0514818, -6.10599e-08, -2.66942e-08, 0.998674, 1, 1, 1, 0.2, 1, -0.0532998, -1.04243, -0.0447309, 0.0610462, -0.00248201, -0.0405796, 0.997307, 1, 1, 1, 0.266667, 1, -0.287819, -0.717382, -0.0447309, 0.0595768, -0.0133954, -0.219013, 0.973809, 1, 1, 1, 0.333333, 1, -0.340516, -0.17932, -0.0447309, 0.0590498, -0.014963, -0.256579, 0.964602, 1, 1, 1, 0.4, 1, -0.32485, 0.38262, -0.044731, 0.0596834, -0.0113644, -0.221516, 0.973262, 1, 1, 1, 0.466667, 1, -0.237449, 0.720276, -0.0338103, 0.059116, -0.0141116, -0.0831787, 0.99468, 1, 1, 1, 0.533333, 1, -0.0334039, 0.811101, 0.0142405, 0.0520245, -0.0289145, 0.135418, 0.988999, 1, 1, 1, 0.6, 1, 0.010012, 0.796409, 0.0251611, 0.0518838, -0.0271095, 0.149715, 0.986995, 1, 1, 1, 0.666667, 1, 0.010012, 0.655032, 0.0251611, 0.0594399, -0.00505269, 0.027904, 0.997829, 1, 1, 1, 0.733333, 1, 0.010012, 0.385406, 0.0251612, 0.0610485, 5.85838e-08, -1.85121e-08, 0.998135, 1, 1, 1, 0.8, 1, 0.010012, 0.0618295, 0.0251612, 0.0610485, 5.85838e-08, -1.85121e-08, 0.998135, 1, 1, 1, 0.866667, 1, 0.00697351, -0.186645, 0.0162025, 0.0610485, 5.85838e-08, -1.85121e-08, 0.998135, 1, 1, 1, 0.933333, 1, -0.00639606, -0.365332, -0.0254463, 0.0610485, 5.85838e-08, -1.85121e-08, 0.998135, 1, 1, 1, 1, 1, -0.00796044, -0.607852, -0.0419429, 0.0515224, 5.799e-08, -3.28337e-08, 0.998672, 1, 1, 1, 1.06667, 1, -0.00147414, -0.853751, -0.0446277, 0.00954116, 5.94598e-08, -1.54692e-08, 0.999955, 1, 1, 1, 1.1, 1, 0, -0.897107, -0.0447309, 0, 1.77636e-15, 0, 1, 1, 1, 1 )
 
+[sub_resource type="AnimationNodeAnimation" id=39]
+animation = "jump"
+
+[sub_resource type="AnimationNodeTimeScale" id=27]
+
+[sub_resource type="AnimationNodeTransition" id=28]
+input_count = 2
+xfade_time = 0.1
+input_0/name = "guarding"
+input_0/auto_advance = false
+input_1/name = "not_guarding"
+input_1/auto_advance = false
+
+[sub_resource type="AnimationNodeAnimation" id=33]
+animation = "idle"
+
+[sub_resource type="AnimationNodeTimeScale" id=40]
+
+[sub_resource type="AnimationNodeBlend3" id=34]
+
+[sub_resource type="AnimationNodeOneShot" id=41]
+
+[sub_resource type="AnimationNodeAnimation" id=35]
+animation = "run"
+
+[sub_resource type="AnimationNodeTimeScale" id=36]
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "idle"
+
+[sub_resource type="AnimationNodeAnimation" id=29]
+animation = "walk"
+
+[sub_resource type="AnimationNodeAnimation" id=30]
+animation = "walk"
+
+[sub_resource type="AnimationNodeAnimation" id=31]
+animation = "walk"
+
+[sub_resource type="AnimationNodeAnimation" id=32]
+animation = "walk"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=26]
+blend_point_0/node = SubResource( 17 )
+blend_point_0/pos = Vector2( 0, 0 )
+blend_point_1/node = SubResource( 29 )
+blend_point_1/pos = Vector2( 0, 1 )
+blend_point_2/node = SubResource( 30 )
+blend_point_2/pos = Vector2( 0, -1 )
+blend_point_3/node = SubResource( 31 )
+blend_point_3/pos = Vector2( 1, 0 )
+blend_point_4/node = SubResource( 32 )
+blend_point_4/pos = Vector2( -1, 0 )
+
+[sub_resource type="AnimationNodeAnimation" id=37]
+animation = "walk"
+
+[sub_resource type="AnimationNodeTimeScale" id=38]
+
+[sub_resource type="AnimationNodeBlendTree" id=16]
+graph_offset = Vector2( 277.557, 609.574 )
+nodes/Animation/node = SubResource( 39 )
+nodes/Animation/position = Vector2( 700, 660 )
+nodes/TimeScale/node = SubResource( 27 )
+nodes/TimeScale/position = Vector2( 520, 220 )
+nodes/guard_transition/node = SubResource( 28 )
+nodes/guard_transition/position = Vector2( 800, 320 )
+nodes/idle/node = SubResource( 33 )
+nodes/idle/position = Vector2( 100, 360 )
+nodes/jump_scale/node = SubResource( 40 )
+nodes/jump_scale/position = Vector2( 940, 760 )
+nodes/move_blend/node = SubResource( 34 )
+nodes/move_blend/position = Vector2( 460, 560 )
+nodes/output/position = Vector2( 1560, 380 )
+nodes/roll/node = SubResource( 41 )
+nodes/roll/position = Vector2( 1260, 520 )
+nodes/run/node = SubResource( 35 )
+nodes/run/position = Vector2( -200, 600 )
+nodes/run_scale/node = SubResource( 36 )
+nodes/run_scale/position = Vector2( 100, 740 )
+nodes/strafe/node = SubResource( 26 )
+nodes/strafe/position = Vector2( 200, 140 )
+nodes/walk/node = SubResource( 37 )
+nodes/walk/position = Vector2( -200, 400 )
+nodes/walk_scale/node = SubResource( 38 )
+nodes/walk_scale/position = Vector2( 100, 500 )
+node_connections = [ "output", 0, "roll", "jump_scale", 0, "Animation", "roll", 0, "guard_transition", "roll", 1, "jump_scale", "walk_scale", 0, "walk", "TimeScale", 0, "strafe", "run_scale", 0, "run", "guard_transition", 0, "TimeScale", "guard_transition", 1, "move_blend", "move_blend", 0, "idle", "move_blend", 1, "walk_scale", "move_blend", 2, "run_scale" ]
+
 [sub_resource type="CapsuleShape" id=15]
 radius = 0.25
 height = 0.75
@@ -3122,7 +3210,8 @@ mesh = SubResource( 1 )
 skin = SubResource( 2 )
 material/0 = null
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Armature/Skeleton"]
+root_node = NodePath("../../..")
 anims/fall = SubResource( 3 )
 anims/grounded = SubResource( 4 )
 anims/headshake-negative = SubResource( 5 )
@@ -3136,12 +3225,26 @@ anims/shortwavehand = SubResource( 12 )
 anims/standup = SubResource( 13 )
 anims/walk = SubResource( 14 )
 
+[node name="AnimationTree" type="AnimationTree" parent="Armature/Skeleton"]
+tree_root = SubResource( 16 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/TimeScale/scale = 1.0
+parameters/guard_transition/current = 1
+parameters/jump_scale/scale = 6.0
+parameters/move_blend/blend_amount = -1.0
+parameters/roll/active = false
+parameters/run_scale/scale = 1.0
+parameters/strafe/blend_position = Vector2( -0.000813663, 0.0181818 )
+parameters/walk_scale/scale = 1.0
+
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.650097, 0 )
+visible = false
 shape = SubResource( 15 )
 
 [node name="CameraRig" type="Position3D" parent="."]
 
 [node name="Camera" type="Camera" parent="CameraRig"]
-transform = Transform( 1, 0, 0, 0, 0.772667, 0.634812, 0, -0.634812, 0.772667, 0, 5.82578, 6.59004 )
+transform = Transform( 1, 0, 0, 0, 0.550495, 0.834838, 0, -0.834838, 0.550495, 0, 4.93758, 2.69451 )
 current = true
