@@ -1,7 +1,7 @@
 [gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Script/HatMan.gd" type="Script" id=1]
-[ext_resource path="res://Asset/Player.material" type="Material" id=2]
+[ext_resource path="res://Asset/Player/Player.material" type="Material" id=2]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Player_Player"
@@ -2985,7 +2985,7 @@ animation = "walk"
 [sub_resource type="AnimationNodeTimeScale" id=38]
 
 [sub_resource type="AnimationNodeBlendTree" id=16]
-graph_offset = Vector2( 873.211, 470.353 )
+graph_offset = Vector2( -299.756, 399.427 )
 nodes/Animation/node = SubResource( 39 )
 nodes/Animation/position = Vector2( 700, 660 )
 nodes/TimeScale/node = SubResource( 27 )
@@ -3011,7 +3011,7 @@ nodes/walk/node = SubResource( 37 )
 nodes/walk/position = Vector2( -200, 400 )
 nodes/walk_scale/node = SubResource( 38 )
 nodes/walk_scale/position = Vector2( 100, 500 )
-node_connections = [ "output", 0, "jump", "jump", 0, "guard_transition", "jump", 1, "jump_scale", "guard_transition", 0, "TimeScale", "guard_transition", 1, "move_blend", "move_blend", 0, "idle", "move_blend", 1, "walk_scale", "move_blend", 2, "run_scale", "jump_scale", 0, "Animation", "TimeScale", 0, "strafe", "walk_scale", 0, "walk", "run_scale", 0, "run" ]
+node_connections = [ "output", 0, "jump", "jump_scale", 0, "Animation", "TimeScale", 0, "strafe", "guard_transition", 0, "TimeScale", "guard_transition", 1, "move_blend", "move_blend", 0, "idle", "move_blend", 1, "walk_scale", "move_blend", 2, "run_scale", "run_scale", 0, "run", "walk_scale", 0, "walk", "jump", 0, "guard_transition", "jump", 1, "jump_scale" ]
 
 [sub_resource type="CapsuleShape" id=15]
 radius = 0.25
