@@ -1,93 +1,83 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=11 format=3 uid="uid://dxpa4mjm6fk48"]
 
-[ext_resource path="res://Scene/HatMan.tscn" type="PackedScene" id=1]
+[ext_resource type="PackedScene" path="res://Scene/HatMan.tscn" id="1"]
 
-[sub_resource type="SpatialMaterial" id=3]
-albedo_color = Color( 0.862745, 0.862745, 0.65098, 1 )
+[sub_resource type="StandardMaterial3D" id="3"]
+albedo_color = Color(0.862745, 0.862745, 0.65098, 1)
 
-[sub_resource type="CubeMesh" id=1]
-material = SubResource( 3 )
-size = Vector3( 20, 0.4, 20 )
+[sub_resource type="BoxMesh" id="1"]
+material = SubResource("3")
+size = Vector3(20, 0.4, 20)
 
-[sub_resource type="ConvexPolygonShape" id=2]
-points = PoolVector3Array( -10, -0.2, -10, -10, 0.2, -10, 10, -0.2, -10, -10, -0.2, 10, -10, 0.2, 10, 10, 0.2, -10, 10, -0.2, 10, 10, 0.2, 10 )
+[sub_resource type="ConvexPolygonShape3D" id="2"]
+points = PackedVector3Array(-10, -0.2, -10, -10, 0.2, -10, 10, -0.2, -10, -10, -0.2, 10, -10, 0.2, 10, 10, 0.2, -10, 10, -0.2, 10, 10, 0.2, 10)
 
-[sub_resource type="CubeMesh" id=6]
+[sub_resource type="BoxMesh" id="6"]
 
-[sub_resource type="ConvexPolygonShape" id=7]
-points = PoolVector3Array( 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1 )
+[sub_resource type="ConvexPolygonShape3D" id="7"]
+points = PackedVector3Array(1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1)
 
-[sub_resource type="CubeMesh" id=5]
-size = Vector3( 1, 1, 1 )
+[sub_resource type="BoxMesh" id="5"]
 
-[sub_resource type="ConvexPolygonShape" id=8]
-points = PoolVector3Array( 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5 )
+[sub_resource type="ConvexPolygonShape3D" id="8"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
 
-[sub_resource type="ConvexPolygonShape" id=9]
-points = PoolVector3Array( 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1 )
+[sub_resource type="ConvexPolygonShape3D" id="9"]
+points = PackedVector3Array(1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1)
 
-[sub_resource type="ConvexPolygonShape" id=10]
-points = PoolVector3Array( 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1 )
+[sub_resource type="ConvexPolygonShape3D" id="10"]
+points = PackedVector3Array(1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1)
 
-[node name="DopeLab" type="Spatial"]
+[node name="DopeLab" type="Node3D"]
 
-[node name="Ground" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
 
-[node name="GroundMesh" type="MeshInstance" parent="Ground"]
-mesh = SubResource( 1 )
+[node name="GroundMesh" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("1")
 skeleton = NodePath("")
-material/0 = null
 
-[node name="CollisionShape" type="CollisionShape" parent="Ground"]
-shape = SubResource( 2 )
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("2")
 
-[node name="HatMan" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0177546, 0.021296 )
+[node name="HatMan" parent="." instance=ExtResource("1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0177546, 0.021296)
 
-[node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 0.698836, -0.0115633, 0.715189, -0.5, 0.707107, 0.5, -0.511496, -0.707012, 0.48837, 16, 14.6013, 12.6564 )
-light_specular = 0.0
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.698836, -0.0115633, 0.715189, -0.5, 0.707107, 0.5, -0.511496, -0.707012, 0.48837, 16, 14.6013, 12.6564)
 shadow_enabled = true
 
-[node name="Platforms" type="StaticBody" parent="."]
-transform = Transform( 0.729828, 0, 0.683631, 0, 1, 0, -0.683631, 0, 0.729828, 4.6543, 1.6905, -1.77463 )
+[node name="Platforms" type="StaticBody3D" parent="."]
+transform = Transform3D(0.729828, 0, 0.683631, 0, 1, 0, -0.683631, 0, 0.729828, 4.6543, 1.6905, -1.77463)
 
-[node name="MeshInstance" type="MeshInstance" parent="Platforms"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14872, -2.38129, 1.57358 )
-mesh = SubResource( 6 )
-material/0 = null
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14872, -2.38129, 1.57358)
+mesh = SubResource("6")
 
-[node name="CollisionShape" type="CollisionShape" parent="Platforms"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14872, -2.38129, 1.57358 )
-shape = SubResource( 7 )
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14872, -2.38129, 1.57358)
+shape = SubResource("7")
 
-[node name="MeshInstance2" type="MeshInstance" parent="Platforms"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26481, -1.26056, 0.197908 )
-mesh = SubResource( 5 )
-material/0 = null
+[node name="MeshInstance2" type="MeshInstance3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26481, -1.26056, 0.197908)
+mesh = SubResource("5")
 
-[node name="CollisionShape2" type="CollisionShape" parent="Platforms"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26481, -1.26056, 0.197909 )
-shape = SubResource( 8 )
+[node name="CollisionShape2" type="CollisionShape3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26481, -1.26056, 0.197909)
+shape = SubResource("8")
 
-[node name="MeshInstance3" type="MeshInstance" parent="Platforms"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.163013, -1.31277, -1.11401 )
-mesh = SubResource( 6 )
-material/0 = null
+[node name="MeshInstance3" type="MeshInstance3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.163013, -1.31277, -1.11401)
+mesh = SubResource("6")
 
-[node name="CollisionShape3" type="CollisionShape" parent="Platforms"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.163013, -1.31277, -1.11401 )
-shape = SubResource( 9 )
+[node name="CollisionShape3" type="CollisionShape3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.163013, -1.31277, -1.11401)
+shape = SubResource("9")
 
-[node name="MeshInstance4" type="MeshInstance" parent="Platforms"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47917, -0.734568, -2.80544 )
-mesh = SubResource( 6 )
-material/0 = null
+[node name="MeshInstance4" type="MeshInstance3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47917, -0.734568, -2.80544)
+mesh = SubResource("6")
 
-[node name="CollisionShape4" type="CollisionShape" parent="Platforms"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47917, -0.734568, -2.80544 )
-shape = SubResource( 10 )
+[node name="CollisionShape4" type="CollisionShape3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47917, -0.734568, -2.80544)
+shape = SubResource("10")
