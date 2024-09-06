@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dxpa4mjm6fk48"]
+[gd_scene load_steps=5 format=3 uid="uid://dxpa4mjm6fk48"]
 
 [ext_resource type="PackedScene" path="res://Scene/HatMan.tscn" id="1"]
 
@@ -11,22 +11,6 @@ size = Vector3(20, 0.4, 20)
 
 [sub_resource type="ConvexPolygonShape3D" id="2"]
 points = PackedVector3Array(-10, -0.2, -10, -10, 0.2, -10, 10, -0.2, -10, -10, -0.2, 10, -10, 0.2, 10, 10, 0.2, -10, 10, -0.2, 10, 10, 0.2, 10)
-
-[sub_resource type="BoxMesh" id="6"]
-
-[sub_resource type="ConvexPolygonShape3D" id="7"]
-points = PackedVector3Array(1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1)
-
-[sub_resource type="BoxMesh" id="5"]
-
-[sub_resource type="ConvexPolygonShape3D" id="8"]
-points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
-
-[sub_resource type="ConvexPolygonShape3D" id="9"]
-points = PackedVector3Array(1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1)
-
-[sub_resource type="ConvexPolygonShape3D" id="10"]
-points = PackedVector3Array(1, 1, 1, 1, 1, -1, -1, 1, 1, 1, -1, 1, 1, -1, -1, -1, 1, -1, -1, -1, 1, -1, -1, -1)
 
 [node name="DopeLab" type="Node3D"]
 
@@ -46,38 +30,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0177546, 0.021296)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.698836, -0.0115633, 0.715189, -0.5, 0.707107, 0.5, -0.511496, -0.707012, 0.48837, 16, 14.6013, 12.6564)
 shadow_enabled = true
-
-[node name="Platforms" type="StaticBody3D" parent="."]
-transform = Transform3D(0.729828, 0, 0.683631, 0, 1, 0, -0.683631, 0, 0.729828, 4.6543, 1.6905, -1.77463)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14872, -2.38129, 1.57358)
-mesh = SubResource("6")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14872, -2.38129, 1.57358)
-shape = SubResource("7")
-
-[node name="MeshInstance2" type="MeshInstance3D" parent="Platforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26481, -1.26056, 0.197908)
-mesh = SubResource("5")
-
-[node name="CollisionShape2" type="CollisionShape3D" parent="Platforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26481, -1.26056, 0.197909)
-shape = SubResource("8")
-
-[node name="MeshInstance3" type="MeshInstance3D" parent="Platforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.163013, -1.31277, -1.11401)
-mesh = SubResource("6")
-
-[node name="CollisionShape3" type="CollisionShape3D" parent="Platforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.163013, -1.31277, -1.11401)
-shape = SubResource("9")
-
-[node name="MeshInstance4" type="MeshInstance3D" parent="Platforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47917, -0.734568, -2.80544)
-mesh = SubResource("6")
-
-[node name="CollisionShape4" type="CollisionShape3D" parent="Platforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47917, -0.734568, -2.80544)
-shape = SubResource("10")
